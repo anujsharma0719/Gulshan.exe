@@ -14,6 +14,18 @@
             padding: 30px;
         }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #00ff41;
+    padding: 12px 14px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    text-shadow: 0 0 8px #00ff41;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.25);
+}
+
         .terminal {
             font-size: 18px;
             text-shadow: 0 0 8px #00ff41;
@@ -22,24 +34,33 @@
 
         @media (max-width: 600px) {
 
-            body {
-                padding: 18px;
-            }
+    body {
+        padding: 18px;
+    }
 
-            .terminal {
-                font-size: 15px;
-                line-height: 1.6;
-            }
+    .header {
+        font-size: 13px;
+        padding: 10px;
+    }
 
-        }
+    .terminal {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+}
 
     </style>
 
 </head>
 
 <body>
+<div class="header">
+    <span>[ GULSHAN.EXE ]</span>
+    <span>ANUJ SYSTEMS</span>
+</div>
 
-    <div class="terminal" id="terminal"></div>
+<div class="terminal" id="terminal"></div>
 
     <script src="script.js"></script>
 
