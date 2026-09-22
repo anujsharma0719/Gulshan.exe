@@ -415,14 +415,12 @@
         border-radius: 22px;
     }
 
-    .card-title {
-        font-size: 24px;
-    }
+    ..card-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
 
-    .card-content {
-        font-size: 16px;
-        line-height: 1.8;
-    }
+}
 
 #countdown {
     position: fixed;
@@ -463,6 +461,213 @@
     100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
+    }
+
+}
+
+/* =========================
+   FINAL PROPOSAL
+========================= */
+
+.proposal-section {
+    display: none;
+
+    min-height: 100vh;
+
+    margin: 0 -30px;
+
+    padding: 50px 25px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffdce8,
+            #fff0f5
+        );
+
+    color: #542b3b;
+
+    font-family: Arial, sans-serif;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    animation: proposalAppear 1.5s ease;
+}
+
+.proposal-heart {
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    animation: heartBeat 1.5s infinite;
+}
+
+.proposal-small {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.55;
+
+    margin-bottom: 18px;
+}
+
+.proposal-name {
+    font-size: 42px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.proposal-text {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #704657;
+
+    margin-bottom: 35px;
+}
+
+.proposal-question {
+    font-size: 27px;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    margin-bottom: 40px;
+}
+
+.proposal-question span {
+    display: inline-block;
+
+    animation: heartBeat 1.5s infinite;
+}
+
+.proposal-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.proposal-buttons button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.yes-button {
+    background: #ff6f9c;
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(255, 111, 156, 0.35);
+}
+
+.yes-button:hover {
+    transform: scale(1.08);
+}
+
+.no-button {
+    background: white;
+
+    color: #704657;
+
+    box-shadow:
+        0 8px 20px rgba(100, 50, 70, 0.12);
+}
+
+.no-button:hover {
+    transform: scale(1.05);
+}
+
+
+/* PROPOSAL ANIMATION */
+
+@keyframes proposalAppear {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .proposal-section {
+        margin: 0 -18px;
+
+        padding: 40px 20px;
+    }
+
+    .proposal-heart {
+        font-size: 42px;
+    }
+
+    .proposal-name {
+        font-size: 34px;
+
+        letter-spacing: 4px;
+    }
+
+    .proposal-text {
+        font-size: 16px;
+    }
+
+    .proposal-question {
+        font-size: 24px;
+    }
+
+    .proposal-buttons button {
+        padding: 14px 26px;
     }
 
 }
@@ -571,8 +776,54 @@
 
 </div>
 
-    <script src="script.js"></script>
+<!-- FINAL PROPOSAL -->
 
+<div class="proposal-section" id="proposalSection">
+
+    <div class="proposal-heart">
+        ❤️
+    </div>
+
+    <div class="proposal-small">
+        ONE LAST QUESTION
+    </div>
+
+    <div class="proposal-name">
+        GULSHAN
+    </div>
+
+    <div class="proposal-text">
+
+        I've told you everything<br>
+        I wanted you to know.
+
+        <br><br>
+
+        So there's only one thing<br>
+        left to ask...
+
+    </div>
+
+    <div class="proposal-question">
+        Will you go on a date<br>
+        with me?
+        <span>❤️</span>
+    </div>
+
+    <div class="proposal-buttons">
+
+        <button class="yes-button" id="yesButton">
+            YES ❤️
+        </button>
+
+        <button class="no-button" id="noButton">
+            NO
+        </button>
+
+    </div>
+
+</div>
+<script src="script.js"></script>
 </body>
 
 </html>
