@@ -203,6 +203,269 @@
             }
 
         }
+/* =========================
+   CONFESSION SECTION
+========================= */
+
+.confession-section {
+    display: none;
+    min-height: 100vh;
+    margin: 0 -30px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+
+    background: #bfe8f5;
+    color: #183642;
+
+    font-family: Arial, sans-serif;
+
+    transition:
+        background 1.5s ease,
+        color 1.5s ease;
+}
+
+.confession-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    max-width: 600px;
+    margin: auto;
+}
+
+.confession-card-wrap {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 70px auto 0;
+
+    perspective: 1000px;
+}
+
+.confession-card {
+    width: 100%;
+    min-height: 430px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border-radius: 24px;
+
+    padding: 35px 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(45, 100, 120, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.card-number {
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    opacity: 0.55;
+
+    margin-bottom: 30px;
+}
+
+.card-title {
+    font-size: 27px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+}
+
+.card-content {
+    font-size: 17px;
+    line-height: 1.8;
+
+    max-width: 480px;
+
+    color: #385864;
+}
+
+.swipe-hint {
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}
+
+.card-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+}
+
+.card-buttons button {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: white;
+
+    color: #385864;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(45, 100, 120, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card-buttons button:active {
+    transform: scale(0.9);
+}
+
+.card-buttons button:hover {
+    transform: scale(1.08);
+}
+
+
+/* CARD ANIMATIONS */
+
+.card-next {
+    animation: cardNext 0.4s ease;
+}
+
+.card-prev {
+    animation: cardPrev 0.4s ease;
+}
+
+@keyframes cardNext {
+
+    0% {
+        opacity: 0;
+        transform: translateX(80px) rotate(4deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+
+}
+
+@keyframes cardPrev {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-80px) rotate(-4deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .confession-section {
+        margin: 0 -18px;
+        padding: 30px 18px;
+    }
+
+    .confession-card-wrap {
+        margin-top: 55px;
+    }
+
+    .confession-card {
+        min-height: 440px;
+        padding: 30px 22px;
+
+        border-radius: 22px;
+    }
+
+    .card-title {
+        font-size: 24px;
+    }
+
+    .card-content {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+#countdown {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 9999;
+
+    font-family: monospace;
+
+    font-size: 60px;
+
+    font-weight: bold;
+
+    color: #00ff41;
+
+    text-shadow:
+        0 0 10px #00ff41,
+        0 0 30px #00ff41;
+
+    animation: countdownPulse 1s ease;
+}
+
+@keyframes countdownPulse {
+
+    0% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+}
 
     </style>
 
@@ -261,6 +524,52 @@
         </div>
 
     </div>
+<!-- CONFESSION SECTION -->
+
+<div class="confession-section" id="confessionSection">
+
+    <div class="confession-top">
+        <span>PRIVATE FILES</span>
+        <span id="cardCounter">1 / 6</span>
+    </div>
+
+    <div class="confession-card-wrap">
+
+        <div class="confession-card" id="confessionCard">
+
+            <div class="card-number" id="cardNumber">
+                FILE #001
+            </div>
+
+            <div class="card-title" id="cardTitle">
+                HOW WE MET
+            </div>
+
+            <div class="card-content" id="cardContent">
+                [ WRITE YOUR STORY HERE ]
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="swipe-hint">
+        ← SWIPE → 
+    </div>
+
+    <div class="card-buttons">
+
+        <button id="prevBtn">
+            ←
+        </button>
+
+        <button id="nextBtn">
+            →
+        </button>
+
+    </div>
+
+</div>
 
     <script src="script.js"></script>
 
